@@ -1,34 +1,37 @@
-$(function(){
-    var darkskycondition = "https://api.darksky.net/forecast/25c7e5437826048f2515b96faa565698/37.8267,-122.4233";
-    $.ajax(darkskycondition,{dataType:"jsonp"}).done(function(data){
-        console.log(data);
-        $("#condition").append( data.currently.summary);
-        
-    });
-    var darkskytemp = "https://api.darksky.net/forecast/25c7e5437826048f2515b96faa565698/37.8267,-122.4233";
-    $.ajax(darkskytemp,{dataType:"jsonp"}).done(function(data){
-        console.log(data);
-        $("#temp").append( data.currently.temperature);
-    });  
-    var darkskyrainchance = "https://api.darksky.net/forecast/25c7e5437826048f2515b96faa565698/37.8267,-122.4233";
-    $.ajax(darkskyrainchance,{dataType:"jsonp"}).done(function(data){
-        console.log(data);
-        $("#chanceofrain").append( "Current Chance of Rain is at "+data.currently.precipProbability); 
-    });     
-    var darkskymaxtemp = "https://api.darksky.net/forecast/25c7e5437826048f2515b96faa565698/37.8267,-122.4233";
-    $.ajax(darkskymaxtemp,{dataType:"jsonp"}).done(function(data){
-        console.log(data);
-        $("#maxtemp").append( "The high for today is "+data.daily.temperatureMax); 
-    });  
+$(function () {
+    $("#addzip").click(function () {
+        var zipcode = $("#zip").val();
 
-    var location ="https://maps.googleapis.com/maps/api/geocode/json?address=41240&key=AIzaSyBR_rxAnCdGK8bRZlRhG69ZO1xb9omyflE";
-    $.ajax(location,{dataType:"json"}).done(function(data){
-        console.log(data)
-        $("#location").append(data.results.formatted_address)
-    });
 
+        var location = "https://maps.googleapis.com/maps/api/geocode/json?address=" + zipcode + "&key=AIzaSyBR_rxAnCdGK8bRZlRhG69ZO1xb9omyflE";
+        $.ajax(location, { dataType: "json" }).done(function (data) {
+            console.log(data)
+            var city = data.results[0].address_components[1].long_name;
+            var state = data.results[0].address_components[3].short_name;
+            var latitude = data.results[0].geometry.location.lat;
+            var longitude = data.results[0].geometry.location.lng;
+            $(".city").append(city + ' ' + state);
+
+            var darkskycondition = "https://api.darksky.net/forecast/25c7e5437826048f2515b96faa565698/" + latitude + "," + longitude;
+            $.ajax(darkskycondition, { dataType: "jsonp" }).done(function (data) {
+                console.log(data);
+                $(".condition").append(data.currently.summary);
+                $(".temp").append(data.currently.temperature);
+                $(".chanceofrain").append("Current Chance of Rain is at " + data.currently.precipProbability);
+                $(".maxtemp").append("The high for today is " + data.daily.data[0].temperatureMax);
+                $(".mintemp").append("The low for today is " + data.daily.data[0].temperatureMin);
+
+            });
+
+        });
+
+
+    });
 
 });
+
+
+
 
 
 //  $.ajax("https://api.darksky.net/forecast/" + darkSkyKey + "/37.8267,-122.4233", { dataType: "jsonp"}).done(function(data) {
