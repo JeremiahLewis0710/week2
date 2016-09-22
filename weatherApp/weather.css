@@ -3,62 +3,69 @@
 .card1{
     text-align:center;
     background-image: url("http://www.nws.noaa.gov/om/severeweather/resources/4LEE_Lightning-md.jpg");
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat:none;
     height:250px;
     border-radius: 20px;
     margin:10px;
+    color: mediumaquamarine;
 }
 
 .card2{
     text-align:center;
      background-image: url("http://www.wallpaperscharlie.com/wp-content/uploads/2016/07/Snowy-Weather-HD-Images-3.jpg");
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat:none;
     height:250px;
     border-radius: 20px;
     margin:10px;
+    color: mediumaquamarine;
 }
 
 
 .card3{
     text-align:center;
      background-image: url("http://ckom.com/sites/default/files/styles/article_lead_image/public/contest/weather.jpg?itok=BjOZlxOB");
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat:none;
     height:250px;
     border-radius: 20px;
     margin:10px;
+    color: mediumaquamarine;
 }
 
 
 .card4{
     text-align:center;
     background-image: url("http://en.es-static.us/upl/2013/07/downpour.jpg");
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat:none;
     height:250px;
     border-radius: 20px;
     margin:10px;
+    color: mediumaquamarine;
 }
 
 .card5{
     text-align:center;
      background-image: url("http://www.gannett-cdn.com/-mm-/1f09360cfabb773cdf6fa082f2fafe397a2d03b1/c=28-0-479-338&r=x404&c=534x401/local/-/media/FortMyers/2014/12/08/B9315415807Z.1_20141208164230_000_GI99BRCAH.1-0.jpg");
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat:none;
     height:250px;
     border-radius: 20px;
     margin:10px;
+    color: mediumaquamarine;
 }
 
 
 .card6{
     text-align:center;
      background-image: url("http://img14.deviantart.net/0a6d/i/2011/322/f/5/cloudy_sky_stock_by_eblis_stock-d4gkn00.jpg");
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat:none;
     height:250px;
     border-radius: 20px;
     margin:10px;
+    color: mediumaquamarine;
 }
+
