@@ -10,16 +10,20 @@ $(function () {
             var state = data.results[0].address_components[3].short_name;
             var latitude = data.results[0].geometry.location.lat;
             var longitude = data.results[0].geometry.location.lng;
-            $(".city").append(city + ' ' + state);
+            // $(".city").append(city + ' ' + state);
 
             var darkskycondition = "https://api.darksky.net/forecast/25c7e5437826048f2515b96faa565698/" + latitude + "," + longitude;
             $.ajax(darkskycondition, { dataType: "jsonp" }).done(function (data) {
                 console.log(data);
-                $(".condition").append(data.currently.summary);
-                $(".temp").append(data.currently.temperature);
-                $(".chanceofrain").append("Current Chance of Rain is at " + data.currently.precipProbability);
-                $(".maxtemp").append("The high for today is " + data.daily.data[0].temperatureMax);
-                $(".mintemp").append("The low for today is " + data.daily.data[0].temperatureMin);
+                var div = $("<div></div>");
+                div.append(city + ' ' + state)
+                   .append(data.currently.summary)
+                   .append(data.currently.temperature)
+                   .append("Current Chance of Rain is at " + data.currently.precipProbability)
+                   .append("The high for today is " + data.daily.data[0].temperatureMax)
+                   .append("The low for today is " + data.daily.data[0].temperatureMin);
+                   $("#card").append(div);
+
 
             });
 
