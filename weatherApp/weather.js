@@ -3,6 +3,7 @@ $(function () {
         var zipcode = $("#zip").val();
 
 
+
         var location = "https://maps.googleapis.com/maps/api/geocode/json?address=" + zipcode + "&key=AIzaSyBR_rxAnCdGK8bRZlRhG69ZO1xb9omyflE";
         $.ajax(location, { dataType: "json" }).done(function (data) {
             console.log(data)
@@ -15,24 +16,25 @@ $(function () {
             var darkskycondition = "https://api.darksky.net/forecast/25c7e5437826048f2515b96faa565698/" + latitude + "," + longitude;
             $.ajax(darkskycondition, { dataType: "jsonp" }).done(function (data) {
                 console.log(data);
-                var div = $("<div></div>");
+                var div = $("<div class = 'card col-sm-3'></div>");
                 div.append(city + ' ' + state)
-                   .append(data.currently.summary)
-                   .append(data.currently.temperature)
-                   .append("Current Chance of Rain is at " + data.currently.precipProbability)
-                   .append("The high for today is " + data.daily.data[0].temperatureMax)
-                   .append("The low for today is " + data.daily.data[0].temperatureMin);
-                   $("#card").append(div);
+                    .append(data.currently.summary)
+                    .append(data.currently.temperature)
+                    .append("Current Chance of Rain is at " + data.currently.precipProbability)
+                    .append("The high for today is " + data.daily.data[0].temperatureMax)
+                    .append("The low for today is " + data.daily.data[0].temperatureMin);
+                $(".row").append(div);
 
 
             });
 
         });
 
-
     });
 
 });
+
+
 
 
 

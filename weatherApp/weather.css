@@ -4,10 +4,10 @@
     text-align:center;
     background-color:lightslategray;
     background-repeat:none;
-    height:2 em;
-    width: 30%;
     border-radius: 20px;
-    margin:10px;
+    margin:15px;
+    padding: 1 em;
+    float:left;
     color: mediumaquamarine;
 };
 
