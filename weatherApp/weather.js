@@ -1,6 +1,6 @@
 $(function () {
-    $("#addzip").click(function () {
-        var zipcode = $("#zip").val();
+    $(".addzip").click(function () {
+        var zipcode = $(".zip").val();
 
 
 
