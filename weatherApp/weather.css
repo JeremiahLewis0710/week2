@@ -1,16 +1,17 @@
 
-
+body{
+    padding-top:50px;
+}
 
 .card{
     text-align: center;
     background-color:lightslategray;
     background-repeat:none;
     border-radius: 20px;
-    margin:8px;
+    margin:5px;
     height:400px;
-    padding: 2 em;
-    width: 2 em;
-    float:left;
+    padding: 1 em;
+    width: 1 em;
     color: mediumaquamarine;
 };
 
