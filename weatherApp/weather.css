@@ -1,15 +1,21 @@
 
 
+
 .card{
-    text-align:center;
+    text-align: center;
     background-color:lightslategray;
     background-repeat:none;
     border-radius: 20px;
-    margin:15px;
-    padding: 1 em;
+    margin:8px;
+    height:400px;
+    padding: 2 em;
+    width: 2 em;
     float:left;
     color: mediumaquamarine;
 };
+
+
+
 
 
 

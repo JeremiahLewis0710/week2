@@ -8,7 +8,7 @@ $(function () {
         $.ajax(location, { dataType: "json" }).done(function (data) {
             console.log(data)
             var city = data.results[0].address_components[1].long_name;
-            var state = data.results[0].address_components[3].short_name;
+            var state = data.results[0].address_components[2].short_name;
             var latitude = data.results[0].geometry.location.lat;
             var longitude = data.results[0].geometry.location.lng;
             // $(".city").append(city + ' ' + state);
@@ -17,11 +17,14 @@ $(function () {
             $.ajax(darkskycondition, { dataType: "jsonp" }).done(function (data) {
                 console.log(data);
                 var div = $("<div class = 'card col-sm-3'></div>");
-                div.append(city + ' ' + state)
-                    .append(data.currently.summary)
-                    .append(data.currently.temperature)
+                div.append("<h2>"+city + ' ' + state+"</h2>")
+                    .append("<hr/>")
+                    .append("<h3>"+data.currently.summary+"</h3>")
                     .append("Current Chance of Rain is at " + data.currently.precipProbability)
+                    .append("<hr/>")
+                    .append("<h4>"+data.currently.temperature+"</h4>")
                     .append("The high for today is " + data.daily.data[0].temperatureMax)
+                    .append("<br/>")
                     .append("The low for today is " + data.daily.data[0].temperatureMin);
                 $(".row").append(div);
 
@@ -33,7 +36,6 @@ $(function () {
     });
 
 });
-
 
 
 
