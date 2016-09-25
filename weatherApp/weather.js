@@ -1,6 +1,7 @@
 $(function () {
     $(".addzip").click(function () {
         var zipcode = $(".zip").val();
+        $(".zip") == $(".zip").val("");
 
 
 
@@ -16,18 +17,22 @@ $(function () {
             var darkskycondition = "https://api.darksky.net/forecast/25c7e5437826048f2515b96faa565698/" + latitude + "," + longitude;
             $.ajax(darkskycondition, { dataType: "jsonp" }).done(function (data) {
                 console.log(data);
-                var div = $("<div class = 'card col-sm-3'></div>");
-                div.append("<h2>"+city + ' ' + state+"</h2>")
+                var div = $("<div class = 'card col-sm-3'><button class= 'btn btn-default removeCard' type = 'button'>Remove</button></div>");
+                div.append("<h2>" + city + ' ' + state + "</h2>")
                     .append("<hr/>")
-                    .append("<h3>"+data.currently.summary+"</h3>")
+                    .append("<h3>" + data.currently.summary + "</h3>")
                     .append("Current Chance of Rain is at " + data.currently.precipProbability)
                     .append("<hr/>")
-                    .append("<h4>"+data.currently.temperature+"</h4>")
+                    .append("<h4>" + data.currently.temperature + "</h4>")
                     .append("The high for today is " + data.daily.data[0].temperatureMax)
                     .append("<br/>")
-                    .append("The low for today is " + data.daily.data[0].temperatureMin);
+                    .append("The low for today is " + data.daily.data[0].temperatureMin)
                 $(".row").append(div);
 
+
+                $(".removeCard").click(function () {
+                    $(this).parent().remove();
+                });
 
             });
 
@@ -37,8 +42,9 @@ $(function () {
 
 });
 
-
-
+// $(".removeCard").click(function () {
+//     $(".card").remove();
+// });
 
 
 
